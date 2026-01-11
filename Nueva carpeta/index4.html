@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Final de Redes - Sección de Diagnóstico</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.7; color: #333; max-width: 900px; margin: auto; padding: 40px; background-color: #f0f2f5; padding-bottom: 100px; }
+        h1 { color: #1e3a8a; text-align: center; border-bottom: 5px solid #1e3a8a; padding-bottom: 10px; }
+        h2 { background: #1e3a8a; color: white; padding: 10px 15px; border-radius: 4px; margin-top: 30px; }
+        .question { margin-bottom: 25px; background: white; padding: 20px; border-radius: 8px; border: 1px solid #d1d5db; box-shadow: 2px 2px 10px rgba(0,0,0,0.05); }
+        .options { list-style-type: none; padding-left: 0; }
+        .options li { margin-bottom: 10px; }
+        input[type="text"] { border: none; border-bottom: 2px solid #1e3a8a; background: #fffbeb; width: 200px; text-align: center; font-weight: bold; }
+        code { color: #dc2626; font-weight: bold; background: #fee2e2; padding: 2px 4px; border-radius: 4px; }
+
+        /* Estilos del Temporizador y Nota */
+        #header-status {
+            position: fixed; top: 0; left: 0; width: 100%; background: #1e3a8a; color: white;
+            display: flex; justify-content: space-around; padding: 10px 0; font-weight: bold; z-index: 1000;
+        }
+        #btn-enviar {
+            display: block; width: 250px; padding: 15px; margin: 30px auto;
+            background: #10b981; color: white; border: none; border-radius: 6px;
+            font-size: 18px; cursor: pointer; font-weight: bold;
+        }
+        #btn-enviar:hover { background: #059669; }
+        #resultado {
+            text-align: center; font-size: 28px; font-weight: bold; color: #1e3a8a;
+            margin-top: 20px; padding: 20px; border: 4px solid #1e3a8a; border-radius: 12px;
+            display: none; background: white;
+        }
+        .timer-warning { color: #f87171; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0.5; } }
+    </style>
+</head>
+<body>
+
+    <div id="header-status">
+        <span>EXAMEN DE DIAGNÓSTICO</span>
+        <span id="timer-display">Tiempo restante: 10:00</span>
+    </div>
+
+    <h1>Examen de Diagnóstico y Procedimientos Académicos</h1>
+
+    <form id="quiz-form">
+        <h2>Sección K: Troubleshooting y Capa 3 (Módulo 4)</h2>
+        
+        <div class="question">
+            <p>58. Si una PC no puede comunicarse con otra VLAN, pero sí con su propia red, el primer parámetro a revisar es el <input type="text" id="ans58" placeholder="..."> configurado en la PC.</p>
+        </div>
+
+        <div class="question">
+            <p>59. En un Switch Multicapa, para transformar un puerto de switch (Capa 2) en una interfaz de enrutamiento (Capa 3), se usa el comando: <br>
+            <code><input type="text" id="ans59" placeholder="no ..."></code></p>
+        </div>
+
+        <div class="question">
+            <p>60. El comando <code>show ip route</code> en un Switch de Capa 3 no mostrará rutas a menos que se haya ejecutado previamente el comando global <code>ip <input type="text" id="ans60" placeholder="..."></code>.</p>
+        </div>
+
+        <h2>Sección L: Estados y Prioridades (Módulos 5 y 6)</h2>
+
+        <div class="question">
+            <p>61. ¿Cuál es el comando para verificar únicamente el estado de los puertos troncales en el switch?</p>
+            <ul class="options">
+                <li><input type="radio" name="q61" value="correct"> show interfaces trunk</li>
+                <li><input type="radio" name="q61" value="wrong"> show vlan brief</li>
+                <li><input type="radio" name="q61" value="wrong"> show ip interface brief</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>62. En EtherChannel con LACP, si configuramos un extremo como <code>Passive</code> y el otro también como <code>Passive</code>, ¿se formará el canal?</p>
+            <ul class="options">
+                <li><input type="radio" name="q62" value="wrong"> Sí</li>
+                <li><input type="radio" name="q62" value="correct"> No</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>63. Complete: El temporizador de STP que define cuánto tiempo espera un puerto en los estados de Listening y Learning es el <input type="text" id="ans63" placeholder="Forward ...">.</p>
+        </div>
+
+        <div class="question">
+            <p>64. El protocolo <strong>Rapid STP (802.1w)</strong> reduce el tiempo de convergencia al omitir los estados Listening y sustituirlos por el estado de <input type="text" id="ans64" placeholder="... ">.</p>
+        </div>
+
+        <h2>Sección M: Seguridad de Puertos y SSH (Módulo 1 y 2)</h2>
+
+        <div class="question">
+            <p>65. El comando para ver si un usuario específico está conectado actualmente al switch por SSH es: <br>
+            <code>show <input type="text" id="ans65" placeholder="..."></code></p>
+        </div>
+
+        <div class="question">
+            <p>66. ¿Qué comando se utiliza para limitar la cantidad de direcciones MAC permitidas en un puerto de switch?</p>
+            <ul class="options">
+                <li><input type="radio" name="q66" value="correct"> switchport port-security maximum [valor]</li>
+                <li><input type="radio" name="q66" value="wrong"> switchport access vlan [valor]</li>
+                <li><input type="radio" name="q66" value="wrong"> switchport mode trunk</li>
+            </ul>
+        </div>
+
+        <h2>Sección N: Normas del Curso y Software</h2>
+
+        <div class="question">
+            <p>67. ¿Cuál es la versión exacta de Cisco Packet Tracer que el profesor recomienda utilizar debido a errores en versiones superiores? <input type="text" id="ans67" placeholder="Versión">.</p>
+        </div>
+
+        <div class="question">
+            <p>68. Según el sílabo, los exámenes de "Punto de Control" en Netacad equivalen al <input type="text" id="ans68" placeholder="Porcentaje">% de la nota final.</p>
+        </div>
+
+        <div class="question">
+            <p>69. El examen final del curso, a diferencia de versiones anteriores, ahora se rinde de manera <input type="text" id="ans69" placeholder="Asíncrona/Síncrona"> fuera de clases.</p>
+        </div>
+
+        <div class="question">
+            <p>70. ¿Qué sucede si el sistema Proctoring Small se desactiva durante una evaluación?</p>
+            <ul class="options">
+                <li><input type="radio" name="q70" value="wrong"> Se puede continuar sin problemas.</li>
+                <li><input type="radio" name="q70" value="correct"> La evaluación es observada y podría no ser calificada.</li>
+                <li><input type="radio" name="q70" value="wrong"> Se descuentan 2 puntos.</li>
+            </ul>
+        </div>
+
+        <h2>Sección O: Comandos Finales de Verificación</h2>
+
+        <div class="question">
+            <p>71. Para ver la versión del IOS, el tiempo de actividad y el modelo del switch, se usa el comando: <input type="text" id="ans71" placeholder="show ..."></p>
+        </div>
+
+        <div class="question">
+            <p>72. El comando para ver la configuración que se ejecutará al reiniciar el dispositivo es: <br>
+            <code>show <input type="text" id="ans72" placeholder="...">-config</code></p>
+        </div>
+
+        <div class="question">
+            <p>73. ¿Cuál es la combinación de teclas para interrumpir un proceso en el IOS de Cisco (como un ping o un DNS lookup errado)?</p>
+            <ul class="options">
+                <li><input type="radio" name="q73" value="wrong"> Ctrl + C</li>
+                <li><input type="radio" name="q73" value="correct"> Ctrl + Shift + 6</li>
+                <li><input type="radio" name="q73" value="wrong"> Alt + F4</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>74. Si un puerto de switch está en modo <code>err-disable</code>, ¿cuál es el procedimiento para reactivarlo manualmente?</p>
+            <ul class="options">
+                <li><input type="radio" name="q74" value="wrong"> reboot</li>
+                <li><input type="radio" name="q74" value="correct"> shutdown y luego no shutdown</li>
+                <li><input type="radio" name="q74" value="wrong"> clear spanning-tree</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>75. El comando para asignar una descripción a una interfaz (ej. "Enlace a Servidor") es: <br>
+            <code><input type="text" id="ans75" placeholder="..."> Enlace a Servidor</code></p>
+        </div>
+
+        <div class="question">
+            <p>76. ¿Cuál es el protocolo que permite a un switch asignar automáticamente parámetros de red (como IP) a un teléfono IP? <input type="text" id="ans76" placeholder="Siglas">.</p>
+        </div>
+
+        <div class="question">
+            <p>77. ¿Cómo se denomina al curso de autoaprendizaje vinculado que otorga un certificado internacional al finalizar? <input type="text" id="ans77" placeholder="Nombre del curso">.</p>
+        </div>
+
+        <button type="button" id="btn-enviar" onclick="finalizarExamen()">ENVIAR EXAMEN</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        // TEMPORIZADOR 10 MINUTOS
+        let tiempoSegundos = 10 * 60;
+        const timerDisplay = document.getElementById('timer-display');
+
+        const timer = setInterval(() => {
+            let m = Math.floor(tiempoSegundos / 60);
+            let s = tiempoSegundos % 60;
+            timerDisplay.innerText = `Tiempo restante: ${m}:${s < 10 ? '0' + s : s}`;
+
+            if (tiempoSegundos <= 30) timerDisplay.classList.add('timer-warning');
+
+            if (tiempoSegundos <= 0) {
+                clearInterval(timer);
+                alert("¡Tiempo finalizado!");
+                finalizarExamen();
+            }
+            tiempoSegundos--;
+        }, 1000);
+
+        function finalizarExamen() {
+            clearInterval(timer);
+            let nota = 0;
+            const t = (id) => document.getElementById(id).value.toLowerCase().trim();
+
+            // Calificación de Texto (Respuestas 58-60, 63-65, 67-69, 71-72, 75-77)
+            if (t('ans58').includes("gateway")) nota++;
+            if (t('ans59') === "no switchport") nota++;
+            if (t('ans60') === "routing") nota++;
+            if (t('ans63').includes("delay")) nota++;
+            if (t('ans64').includes("discar")) nota++; // Discarding
+            if (t('ans65') === "users" || t('ans65') === "ssh") nota++;
+            if (t('ans67').includes("8.2")) nota++;
+            if (t('ans68') === "10") nota++;
+            if (t('ans69').includes("asin")) nota++;
+            if (t('ans71') === "version") nota++;
+            if (t('ans72') === "startup") nota++;
+            if (t('ans75') === "description") nota++;
+            if (t('ans76') === "cdp" || t('ans76') === "lldp") nota++;
+            if (t('ans77').includes("ciberseguridad") || t('ans77').includes("datos")) nota++;
+
+            // Calificación de Radio Buttons (61, 62, 66, 70, 73, 74)
+            const radios = ['q61', 'q62', 'q66', 'q70', 'q73', 'q74'];
+            radios.forEach(name => {
+                const selected = document.querySelector(`input[name="${name}"]:checked`);
+                if (selected && selected.value === "correct") nota++;
+            });
+
+            // Mostrar resultado
+            const resBox = document.getElementById('resultado');
+            resBox.style.display = "block";
+            resBox.innerHTML = `PUNTUACIÓN FINAL: ${nota} / 20`;
+
+            // Bloqueo
+            document.querySelectorAll('input').forEach(i => i.disabled = true);
+            document.getElementById('btn-enviar').style.display = "none";
+            
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</body>
+</html>

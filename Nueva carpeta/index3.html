@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Final de Redes - Nivel Experto</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #1a202c; max-width: 900px; margin: auto; padding: 40px; background-color: #f7fafc; padding-bottom: 100px; }
+        h1 { color: #2d3748; text-align: center; border-bottom: 4px solid #4a5568; padding-bottom: 15px; text-transform: uppercase; }
+        h2 { background: #4a5568; color: white; padding: 10px 20px; border-radius: 6px; margin-top: 50px; }
+        .question { margin-bottom: 30px; border: 1px solid #e2e8f0; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .options { list-style-type: none; margin-top: 15px; padding-left: 0; }
+        .options li { margin-bottom: 10px; padding: 8px; border-radius: 4px; transition: background 0.3s; }
+        .options li:hover { background: #edf2f7; }
+        input[type="text"] { border: none; border-bottom: 2px solid #4a5568; background: #fffaf0; width: 220px; text-align: center; font-weight: bold; color: #2b6cb0; font-size: 1rem; }
+        code { background: #edf2f7; padding: 2px 5px; border-radius: 4px; color: #e53e3e; font-weight: bold; }
+
+        /* Estilos de Funcionalidad */
+        #barra-superior {
+            position: fixed; top: 0; left: 0; width: 100%; background: #2d3748; color: white;
+            display: flex; justify-content: space-around; align-items: center; padding: 10px 0;
+            z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        #btn-finalizar {
+            display: block; width: 280px; padding: 15px; margin: 40px auto;
+            background: #2b6cb0; color: white; border: none; border-radius: 8px;
+            font-size: 18px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        #btn-finalizar:hover { background: #1a365d; }
+        #cuadro-nota {
+            text-align: center; font-size: 32px; font-weight: bold; color: #2d3748;
+            margin-top: 20px; padding: 30px; border: 4px dashed #4a5568; border-radius: 15px;
+            display: none; background: #fff;
+        }
+        .reloj-urgente { color: #fc8181; animation: vibrar 0.5s infinite; }
+        @keyframes vibrar { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <div id="barra-superior">
+        <div>EXAMEN: Módulos 3 al 6</div>
+        <div id="reloj">Tiempo restante: <span id="tiempo">10:00</span></div>
+    </div>
+
+    <h1>Examen de Consolidación: Módulos 3 al 6</h1>
+
+    <form id="quiz-form">
+        <h2>Sección F: VLAN de Voz e Interfaces Virtuales (Módulo 3)</h2>
+        <div class="question">
+            <p>38. Para configurar un puerto que reciba datos de una PC y voz de un teléfono IP simultáneamente, se usa el comando: <br>
+            <code>switchport voice vlan <input type="text" id="ans38" placeholder="Número de VLAN"></code></p>
+        </div>
+
+        <div class="question">
+            <p>39. El comando para habilitar la interfaz virtual de una VLAN y poder asignarle una IP de administración es: <br>
+            <code>interface <input type="text" id="ans39" placeholder="vlan X"></code></p>
+        </div>
+
+        <div class="question">
+            <p>40. ¿Cuál es el requisito de retraso máximo para que la VLAN de voz funcione correctamente sin degradación? <input type="text" id="ans40" placeholder="milisegundos"> ms.</p>
+        </div>
+
+        <h2>Sección G: Spanning Tree Protocol - Profundización (Módulo 5)</h2>
+        <div class="question">
+            <p>41. En STP, el costo de un enlace Gigabit Ethernet (1 Gbps) por defecto es:</p>
+            <ul class="options">
+                <li><input type="radio" name="q41" value="0"> 100</li>
+                <li><input type="radio" name="q41" value="0"> 19</li>
+                <li><input type="radio" name="q41" value="1"> 4</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>42. ¿Qué comando se utiliza para asegurar que un Switch específico se convierta siempre en el Root Bridge para la VLAN 10?</p>
+            <ul class="options">
+                <li><input type="radio" name="q42" value="0"> spanning-tree vlan 10 priority 0</li>
+                <li><input type="radio" name="q42" value="0"> spanning-tree vlan 10 root primary</li>
+                <li><input type="radio" name="q42" value="1"> Ambas son correctas</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>43. Complete: El estado de STP que permite al puerto aprender direcciones MAC pero aún NO reenviar tramas de datos es <input type="text" id="ans43" placeholder="Estado en inglés">.</p>
+        </div>
+
+        <div class="question">
+            <p>44. El valor que se suma a la prioridad base (32768) para identificar la VLAN en el Bridge ID se llama ID de sistema <input type="text" id="ans44" placeholder="... ">.</p>
+        </div>
+
+        <h2>Sección H: EtherChannel - Negociación y Verificación (Módulo 6)</h2>
+        <div class="question">
+            <p>45. Para que EtherChannel funcione, todos los puertos físicos deben coincidir en velocidad, modo dúplex y en la <input type="text" id="ans45" placeholder="... "> asignada.</p>
+        </div>
+
+        <div class="question">
+            <p>46. Si un puerto muestra el estado <code>(P)</code> en el comando <code>show etherchannel summary</code>, significa que el puerto está:</p>
+            <ul class="options">
+                <li><input type="radio" name="q46" value="1"> En uso (In use) / Port-channel</li>
+                <li><input type="radio" name="q46" value="0"> Suspendido</li>
+                <li><input type="radio" name="q46" value="0"> Standby</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>47. ¿Qué modo de LACP inicia la negociación activamente enviando paquetes LACP? <input type="text" id="ans47" placeholder="Modo">.</p>
+        </div>
+
+        <div class="question">
+            <p>48. El comando para agrupar interfaces físicas (ej. f0/1 y f0/2) en un canal lógico es: <br>
+            <code>channel-group <input type="text" id="ans48" placeholder="Número"> mode active</code></p>
+        </div>
+
+        <h2>Sección I: Comandos de Verificación e Identificación</h2>
+        <div class="question">
+            <p>49. ¿Qué comando muestra el estado de todos los puertos del switch, su VLAN y si están activos?</p>
+            <ul class="options">
+                <li><input type="radio" name="q49" value="1"> show vlan brief</li>
+                <li><input type="radio" name="q49" value="0"> show ip interface brief</li>
+                <li><input type="radio" name="q49" value="0"> show running-config</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>50. Para verificar qué puertos son <strong>Root Ports</strong> o <strong>Designated Ports</strong> en STP, usamos: <br>
+            <code>show <input type="text" id="ans50" placeholder="..."></code></p>
+        </div>
+
+        <div class="question">
+            <p>51. En una configuración de Router-on-a-stick, el comando para ver si las subinterfaces están "Up/Up" es: <br>
+            <code>show ip <input type="text" id="ans51" placeholder="..."> brief</code></p>
+        </div>
+
+        <div class="question">
+            <p>52. El comando para ver los mensajes del sistema que confirman si un enlace troncal se ha levantado es: <br>
+            <code>show interfaces <input type="text" id="ans52" placeholder="..."></code></p>
+        </div>
+
+        <h2>Sección J: Conceptos Finales</h2>
+        <div class="question">
+            <p>53. ¿Qué protocolo se encarga de resolver una dirección IP conocida en una dirección MAC desconocida? <input type="text" id="ans53" placeholder="Siglas">.</p>
+        </div>
+
+        <div class="question">
+            <p>54. ¿Cuál es el comando para guardar la configuración actual de la RAM a la memoria NVRAM?</p>
+            <ul class="options">
+                <li><input type="radio" name="q54" value="0"> copy running-config startup-config</li>
+                <li><input type="radio" name="q54" value="0"> write</li>
+                <li><input type="radio" name="q54" value="1"> Ambas son correctas</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>55. Un enlace troncal configurado con <code>switchport mode dynamic auto</code> solo se convertirá en troncal si el otro extremo está en modo <code>trunk</code> o <input type="text" id="ans55" placeholder="... ">.</p>
+        </div>
+
+        <div class="question">
+            <p>56. Según el profesor Fernández, ¿cuál es la nota mínima aprobatoria en la escala vigesimal para este curso? <input type="text" id="ans56" placeholder="Nota">.</p>
+        </div>
+
+        <div class="question">
+            <p>57. ¿Qué sistema de monitoreo se utiliza obligatoriamente durante los exámenes finales para validar la identidad? <input type="text" id="ans57" placeholder="Nombre del software">.</p>
+        </div>
+
+        <button type="button" id="btn-finalizar" onclick="calificar()">FINALIZAR EXAMEN</button>
+    </form>
+
+    <div id="cuadro-nota"></div>
+
+    <script>
+        // TEMPORIZADOR
+        let totalSegundos = 10 * 60;
+        const relojSpan = document.getElementById('tiempo');
+        
+        const cronometro = setInterval(() => {
+            let minutos = Math.floor(totalSegundos / 60);
+            let segundos = totalSegundos % 60;
+            relojSpan.innerText = `${minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
+
+            if (totalSegundos <= 30) document.getElementById('reloj').className = 'reloj-urgente';
+
+            if (totalSegundos <= 0) {
+                clearInterval(cronometro);
+                alert("¡Tiempo agotado! El examen se enviará automáticamente.");
+                calificar();
+            }
+            totalSegundos--;
+        }, 1000);
+
+        function calificar() {
+            clearInterval(cronometro);
+            let puntos = 0;
+            const totalPreguntas = 20; // De la 38 a la 57
+
+            // Validación de Respuestas de Texto
+            const v = (id) => document.getElementById(id).value.toLowerCase().trim();
+
+            if (v('ans38') !== "" && !isNaN(v('ans38'))) puntos++; // VLAN de voz
+            if (v('ans39').includes("vlan")) puntos++;
+            if (v('ans40') === "150") puntos++;
+            if (v('ans43') === "learning") puntos++;
+            if (v('ans44').includes("exten")) puntos++; // Extendido
+            if (v('ans45') === "vlan") puntos++;
+            if (v('ans47') === "active") puntos++;
+            if (v('ans48') !== "" && !isNaN(v('ans48'))) puntos++;
+            if (v('ans50').includes("spanning")) puntos++;
+            if (v('ans51') === "interface") puntos++;
+            if (v('ans52') === "trunk") puntos++;
+            if (v('ans53') === "arp") puntos++;
+            if (v('ans55') === "desirable") puntos++;
+            if (v('ans56') === "14") puntos++;
+            if (v('ans57').includes("small")) puntos++;
+
+            // Validación de Opciones Radio
+            const radios = ['q41', 'q42', 'q46', 'q49', 'q54'];
+            radios.forEach(name => {
+                const opt = document.querySelector(`input[name="${name}"]:checked`);
+                if (opt && opt.value === "1") puntos++;
+            });
+
+            // Mostrar Nota (Escala 20)
+            const notaFinal = puntos; // Como hay 20 preguntas, cada una vale 1 punto
+            const cuadro = document.getElementById('cuadro-nota');
+            cuadro.style.display = "block";
+            cuadro.innerHTML = `EXAMEN FINALIZADO<br>PUNTUACIÓN: ${notaFinal} / 20`;
+
+            // Bloquear Formulario
+            const elements = document.getElementById('quiz-form').elements;
+            for (let i = 0; i < elements.length; i++) elements[i].disabled = true;
+            document.getElementById('btn-finalizar').style.display = "none";
+            
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen de Maestría en Redes - 100 Preguntas</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #1a202c; max-width: 950px; margin: auto; padding: 40px; background-color: #f0f4f8; padding-bottom: 100px; }
+        h1 { color: #1e3a8a; text-align: center; border-bottom: 4px solid #3b82f6; padding-bottom: 15px; }
+        h2 { background: #1e3a8a; color: white; padding: 12px 20px; border-radius: 8px; margin-top: 40px; }
+        .question { margin-bottom: 25px; border: 1px solid #cbd5e0; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        input[type="text"] { border: none; border-bottom: 2px solid #3b82f6; background: #eff6ff; width: 250px; text-align: center; font-weight: bold; color: #1e40af; }
+        code { color: #be185d; background: #fdf2f8; padding: 3px 6px; border-radius: 6px; font-size: 0.95em; }
+        .options { list-style-type: none; padding-left: 0; }
+        .options li { margin-bottom: 12px; }
+
+        /* Estilos del Temporizador y Resultado */
+        #status-bar {
+            position: fixed; top: 0; left: 0; width: 100%; background: #1e3a8a; color: white;
+            display: flex; justify-content: space-around; padding: 10px 0; font-weight: bold; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        #btn-finalizar {
+            display: block; width: 280px; padding: 15px; margin: 40px auto;
+            background: #3b82f6; color: white; border: none; border-radius: 8px;
+            font-size: 18px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        #btn-finalizar:hover { background: #1e40af; }
+        #resultado-caja {
+            text-align: center; font-size: 32px; font-weight: bold; color: #1e3a8a;
+            margin-top: 20px; padding: 30px; border: 5px solid #3b82f6; border-radius: 20px;
+            display: none; background: white;
+        }
+        .urgente { color: #f56565; animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div id="status-bar">
+        <span>BLOQUE FINAL: 78 - 100</span>
+        <div id="timer">Tiempo restante: <span id="clock">10:00</span></div>
+    </div>
+
+    <h1>Examen de Redes: Módulos 5 y 6 (Final)</h1>
+
+    <form id="master-exam">
+        <h2>Sección P: Spanning Tree - Algoritmo y Roles (Módulo 5)</h2>
+        
+        <div class="question">
+            <p>78. ¿Cómo se llama el puerto de un switch que no es el Root Bridge pero tiene el camino de menor costo hacia él? <input type="text" id="ans78" placeholder="Nombre del puerto"></p>
+        </div>
+
+        <div class="question">
+            <p>79. En una topología STP, los puertos que conectan directamente a dispositivos finales (PCs) se deben configurar con la función <strong>PortFast</strong>. El comando es: <br>
+            <code>spanning-tree <input type="text" id="ans79" placeholder="..."></code></p>
+        </div>
+
+        <div class="question">
+            <p>80. ¿Cuál es el comando para verificar el Bridge ID local y el Bridge ID del Root Bridge en el switch?</p>
+            <ul class="options">
+                <li><input type="radio" name="q80" value="1"> show spanning-tree</li>
+                <li><input type="radio" name="q80" value="0"> show ip route</li>
+                <li><input type="radio" name="q80" value="0"> show interfaces trunk</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>81. El tiempo que tarda un puerto en pasar de "Blocking" a "Forwarding" en el estándar 802.1D original es de aproximadamente <input type="text" id="ans81" placeholder="Segundos"> segundos.</p>
+        </div>
+
+        <h2>Sección Q: EtherChannel - Protocolos y Modos (Módulo 6)</h2>
+
+        <div class="question">
+            <p>82. ¿Cuál es el modo de <strong>PAgP</strong> que corresponde al modo "Active" de LACP (inicia la negociación)? <input type="text" id="ans82" placeholder="Modo PAgP"></p>
+        </div>
+
+        <div class="question">
+            <p>83. Para asegurar que un EtherChannel se trate como un solo enlace lógico, se debe configurar la interfaz de tipo <input type="text" id="ans83" placeholder="...-channel">.</p>
+        </div>
+
+        <div class="question">
+            <p>84. ¿Qué sucede si los modos de dúplex (Half vs Full) no coinciden en los puertos de un EtherChannel?</p>
+            <ul class="options">
+                <li><input type="radio" name="q84" value="0"> El canal funciona a la velocidad del más lento.</li>
+                <li><input type="radio" name="q84" value="1"> El EtherChannel no se forma y las interfaces se caen.</li>
+                <li><input type="radio" name="q84" value="0"> Solo un cable transmite datos.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>85. El comando para ver el protocolo de negociación (LACP o PAgP) que está usando un Port-Channel es: <br>
+            <code>show etherchannel <input type="text" id="ans85" placeholder="..."></code></p>
+        </div>
+
+        <h2>Sección R: Escenarios de Enrutamiento (Módulo 4)</h2>
+
+        <div class="question">
+            <p>86. En un Switch Multicapa, el comando <code>ip routing</code> es necesario para habilitar el intercambio de paquetes entre <input type="text" id="ans86" placeholder="... ">.</p>
+        </div>
+
+        <div class="question">
+            <p>87. Para borrar completamente todas las VLANs de un switch, se debe borrar el archivo <input type="text" id="ans87" placeholder="... "> de la memoria flash.</p>
+        </div>
+
+        <div class="question">
+            <p>88. Complete: La técnica de usar un Switch de Capa 3 para el enrutamiento inter-VLAN suele ser más <input type="text" id="ans88" placeholder="Rápida/Lenta"> que usar un router físico externo.</p>
+        </div>
+
+        <h2>Sección S: Procedimientos y Ética (Basado en Clase)</h2>
+
+        <div class="question">
+            <p>89. ¿Qué sucede si un estudiante es detectado usando Inteligencia Artificial para resolver un examen según el profesor? <input type="text" id="ans89" placeholder="Consecuencia">.</p>
+        </div>
+
+        <div class="question">
+            <p>90. El profesor indica que está estrictamente prohibido crear grupos de <input type="text" id="ans90" placeholder="Aplicación"> entre alumnos y docentes.</p>
+        </div>
+
+        <div class="question">
+            <p>91. ¿Cómo se llama el sistema Proctoring que graba la pantalla y la cámara durante los exámenes? <input type="text" id="ans91" placeholder="Nombre"></p>
+        </div>
+
+        <h2>Sección T: Comandos de Diagnóstico Final</h2>
+
+        <div class="question">
+            <p>92. Comando para ver la dirección MAC de un dispositivo final desde el switch: <br>
+            <code>show <input type="text" id="ans92" placeholder="... "> address-table</code></p>
+        </div>
+
+        <div class="question">
+            <p>93. ¿Qué comando permite ver si una subinterfaz en Router-on-a-stick tiene asignado el encapsulamiento 802.1Q?</p>
+            <ul class="options">
+                <li><input type="radio" name="q93" value="0"> show vlan</li>
+                <li><input type="radio" name="q93" value="1"> show running-config</li>
+                <li><input type="radio" name="q93" value="0"> show spanning-tree</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>94. En el IOS de Cisco, el signo de <input type="text" id="ans94" placeholder="Símbolo"> se usa para obtener ayuda.</p>
+        </div>
+
+        <div class="question">
+            <p>95. Un puerto en modo troncal que recibe tramas sin etiqueta (untagged) las enviará a la VLAN <input type="text" id="ans95" placeholder="... ">.</p>
+        </div>
+
+        <div class="question">
+            <p>96. El comando para cambiar la prioridad de STP de un switch manualmente es: <br>
+            <code>spanning-tree vlan 1 <input type="text" id="ans96" placeholder="..."> 4096</code></p>
+        </div>
+
+        <div class="question">
+            <p>97. ¿Cuál es el comando para reiniciar el switch desde la consola? <input type="text" id="ans97" placeholder="Comando"></p>
+        </div>
+
+        <div class="question">
+            <p>98. Para salir directamente al modo privilegiado (<code>#</code>), se usa la combinación <input type="text" id="ans98" placeholder="Teclas"> o el comando <code>end</code>.</p>
+        </div>
+
+        <div class="question">
+            <p>99. ¿Qué protocolo es el estándar abierto (IEEE) para EtherChannel? <input type="text" id="ans99" placeholder="Siglas"></p>
+        </div>
+
+        <div class="question">
+            <p>100. Según el profesor, en la Sesión 10 se desarrollarán ejercicios de <input type="text" id="ans100" placeholder="... "> para el examen final.</p>
+        </div>
+
+        <button type="button" id="btn-finalizar" onclick="calificarMaestria()">FINALIZAR EXAMEN MAESTRÍA</button>
+    </form>
+
+    <div id="resultado-caja"></div>
+
+    <script>
+        // TEMPORIZADOR 10 MINUTOS
+        let tRestante = 10 * 60;
+        const clockDisplay = document.getElementById('clock');
+
+        const timerFinal = setInterval(() => {
+            let m = Math.floor(tRestante / 60);
+            let s = tRestante % 60;
+            clockDisplay.innerText = `${m}:${s < 10 ? '0' + s : s}`;
+
+            if (tRestante <= 30) document.getElementById('timer').className = 'urgente';
+
+            if (tRestante <= 0) {
+                clearInterval(timerFinal);
+                alert("Tiempo agotado. Calificando automáticamente...");
+                calificarMaestria();
+            }
+            tRestante--;
+        }, 1000);
+
+        function calificarMaestria() {
+            clearInterval(timerFinal);
+            let nota = 0;
+            const getV = (id) => document.getElementById(id).value.toLowerCase().trim();
+
+            // Respuestas de Texto
+            if (getV('ans78').includes("root port")) nota++;
+            if (getV('ans79') === "portfast") nota++;
+            if (getV('ans81') === "50") nota++;
+            if (getV('ans82') === "desirable") nota++;
+            if (getV('ans83').includes("port")) nota++; // port-channel
+            if (getV('ans85') === "summary") nota++;
+            if (getV('ans86').includes("vlan")) nota++;
+            if (getV('ans87') === "vlan.dat") nota++;
+            if (getV('ans88') === "rapida") nota++;
+            if (getV('ans89').includes("cero") || getV('ans89').includes("desaprobado")) nota++;
+            if (getV('ans90') === "whatsapp") nota++;
+            if (getV('ans91').includes("small")) nota++;
+            if (getV('ans92') === "mac") nota++;
+            if (getV('ans94') === "?" || getV('ans94').includes("interrogacion")) nota++;
+            if (getV('ans95') === "nativa") nota++;
+            if (getV('ans96') === "priority") nota++;
+            if (getV('ans97') === "reload") nota++;
+            if (getV('ans98').includes("ctrl") || getV('ans98') === "end") nota++;
+            if (getV('ans99') === "lacp") nota++;
+            if (getV('ans100') === "repaso") nota++;
+
+            // Respuestas Radio (80, 84, 93)
+            ['q80', 'q84', 'q93'].forEach(name => {
+                const checked = document.querySelector(`input[name="${name}"]:checked`);
+                if (checked && checked.value === "1") nota++;
+            });
+
+            // Resultado Final
+            const resCaja = document.getElementById('resultado-caja');
+            resCaja.style.display = "block";
+            resCaja.innerHTML = `PUNTUACIÓN BLOQUE FINAL: ${nota} / 23`;
+
+            // Bloquear e inhabilitar
+            const allInp = document.querySelectorAll('input');
+            allInp.forEach(el => el.disabled = true);
+            document.getElementById('btn-finalizar').style.display = "none";
+            
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</body>
+</html>

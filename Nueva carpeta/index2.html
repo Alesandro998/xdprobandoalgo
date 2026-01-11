@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Extendido de Redes - Parte 2</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 900px; margin: auto; padding: 30px; padding-bottom: 100px; }
+        h1 { color: #1a5276; text-align: center; border-bottom: 3px solid #1a5276; padding-bottom: 10px; }
+        h2 { background: #1a5276; color: white; padding: 8px 15px; border-radius: 5px; margin-top: 40px; }
+        .question { margin-bottom: 25px; border-left: 4px solid #3498db; padding-left: 20px; background: #f4f7f6; padding-top: 10px; padding-bottom: 10px; border-radius: 0 10px 10px 0; }
+        .options { list-style-type: none; margin-top: 10px; padding-left: 0; }
+        .options li { margin-bottom: 8px; }
+        input[type="text"] { border: none; border-bottom: 2px solid #1a5276; background: transparent; width: 180px; text-align: center; font-weight: bold; color: #e67e22; }
+        
+        /* Estilos del Temporizador y Botón */
+        #timer-box {
+            position: fixed; top: 10px; right: 10px; background: #e74c3c; color: white;
+            padding: 15px; font-size: 22px; font-weight: bold; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        #btn-finalizar {
+            display: block; width: 250px; padding: 15px; margin: 40px auto;
+            background: #27ae60; color: white; border: none; border-radius: 5px;
+            font-size: 18px; cursor: pointer; font-weight: bold;
+        }
+        #btn-finalizar:hover { background: #219150; }
+        #resultado-final {
+            text-align: center; font-size: 28px; font-weight: bold; color: #1a5276;
+            margin-top: 30px; padding: 20px; border: 3px solid #1a5276; border-radius: 10px; display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="timer-box">Tiempo: <span id="clock">10:00</span></div>
+
+    <h1>Examen de Preparación: Banco de Preguntas Extendido</h1>
+
+    <form id="exam-form">
+        <h2>Sección A: Administración de Dispositivos (Módulo 1)</h2>
+        
+        <div class="question">
+            <p>18. Para que un Switch pueda ser gestionado desde una red remota, se debe configurar un <strong>Default Gateway</strong> con el comando: <br>
+            <code>ip <input type="text" id="ans18" placeholder="..."> 192.168.1.1</code></p>
+        </div>
+
+        <div class="question">
+            <p>19. El comando para ver las grabaciones de las sesiones en Blackboard, según el profesor, se encuentra en la sección: <input type="text" id="ans19" placeholder="..."></p>
+        </div>
+
+        <div class="question">
+            <p>20. Si deseo cifrar todas las contraseñas de texto plano en la configuración actual del switch, utilizo el comando: <br>
+            <code><input type="text" id="ans20" placeholder="..."> password-encryption</code></p>
+        </div>
+
+        <h2>Sección B: Operación del Switch (Módulo 2)</h2>
+
+        <div class="question">
+            <p>21. Un Switch de Capa 2 separa dominios de <input type="text" id="ans21a" placeholder="...">, pero mantiene un único dominio de <input type="text" id="ans21b" placeholder="..."> por cada VLAN.</p>
+        </div>
+
+        <div class="question">
+            <p>22. ¿Cuál es el comando para borrar la tabla de direcciones MAC y forzar al switch a aprenderlas de nuevo?</p>
+            <ul class="options">
+                <li><input type="radio" name="q22" value="correct"> clear mac address-table dynamic</li>
+                <li><input type="radio" name="q22" value="wrong"> delete flash:vlan.dat</li>
+                <li><input type="radio" name="q22" value="wrong"> reload</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>23. Complete: El método de conmutación <strong>Fragment-Free</strong> es una variante de Cut-Through que espera a recibir los primeros <input type="text" id="ans23" placeholder="Número"> bytes de la trama para evitar colisiones.</p>
+        </div>
+
+        <h2>Sección C: VLANs y Troncales (Módulo 3)</h2>
+
+        <div class="question">
+            <p>24. Para crear una VLAN con el número 10 y nombre "Ventas", la secuencia es: <br>
+            <code>vlan 10</code> <br>
+            <code><input type="text" id="ans24" placeholder="..."> Ventas</code></p>
+        </div>
+
+        <div class="question">
+            <p>25. ¿Qué sucede con los puertos de un switch si se elimina la VLAN a la que estaban asignados?</p>
+            <ul class="options">
+                <li><input type="radio" name="q25" value="wrong"> Regresan automáticamente a la VLAN 1.</li>
+                <li><input type="radio" name="q25" value="correct"> Quedan inactivos (huérfanos) y no pueden transmitir datos.</li>
+                <li><input type="radio" name="q25" value="wrong"> Se borra su configuración física.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>26. El comando <code>switchport trunk native vlan 99</code> se utiliza para cambiar la VLAN que no lleva etiqueta 802.1Q a la número <input type="text" id="ans26" placeholder="...">.</p>
+        </div>
+
+        <div class="question">
+            <p>27. El archivo donde se almacenan las VLANs en la memoria flash se llama: <input type="text" id="ans27" placeholder="...">.</p>
+        </div>
+
+        <h2>Sección D: Enrutamiento Inter-VLAN (Módulo 4)</h2>
+
+        <div class="question">
+            <p>28. En Router-on-a-Stick, el comando para definir el tipo de encapsulamiento en una subinterfaz es: <br>
+            <code>encapsulation <input type="text" id="ans28" placeholder="..."> 10</code></p>
+        </div>
+
+        <div class="question">
+            <p>29. Para habilitar el enrutamiento en un Switch Multicapa (Capa 3), se debe ejecutar el comando global: <input type="text" id="ans29" placeholder="...">.</p>
+        </div>
+
+        <div class="question">
+            <p>30. Una <strong>SVI</strong> es una interfaz <input type="text" id="ans30" placeholder="..."> que permite al switch realizar funciones de Gateway para una VLAN.</p>
+        </div>
+
+        <h2>Sección E: STP y EtherChannel (Módulos 5 y 6)</h2>
+
+        <div class="question">
+            <p>31. ¿Qué valor de prioridad por defecto tiene un switch Cisco en STP?</p>
+            <ul class="options">
+                <li><input type="radio" name="q31" value="wrong"> 1</li>
+                <li><input type="radio" name="q31" value="correct"> 32768</li>
+                <li><input type="radio" name="q31" value="wrong"> 4096</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>32. ¿Cómo se denominan las unidades de datos que STP intercambia entre switches para detectar bucles?</p>
+            <ul class="options">
+                <li><input type="radio" name="q32" value="wrong"> Hello Packets</li>
+                <li><input type="radio" name="q32" value="correct"> BPDU (Bridge Protocol Data Units)</li>
+                <li><input type="radio" name="q32" value="wrong"> LSA (Link State Advertisements)</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>33. En EtherChannel, si un extremo se configura como LACP "Active", el otro debe ser para que se forme el canal:</p>
+            <ul class="options">
+                <li><input type="radio" name="q33" value="wrong"> Solo Active</li>
+                <li><input type="radio" name="q33" value="correct"> Active o Passive</li>
+                <li><input type="radio" name="q33" value="wrong"> Solo Desirable</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>34. ¿Qué comando permite verificar el estado resumido de los EtherChannels configurados?</p>
+            <ul class="options">
+                <li><input type="radio" name="q34" value="correct"> show etherchannel summary</li>
+                <li><input type="radio" name="q34" value="wrong"> show ip interface brief</li>
+                <li><input type="radio" name="q34" value="wrong"> show vlan brief</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>35. ¿Cuál es el nombre de la interfaz lógica que se crea al configurar un EtherChannel?</p>
+            <ul class="options">
+                <li><input type="radio" name="q35" value="correct"> Port-Channel</li>
+                <li><input type="radio" name="q35" value="wrong"> Ether-Interface</li>
+                <li><input type="radio" name="q35" value="wrong"> Virtual-Trunk</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>36. STP pone un puerto en estado "Blocking" para:</p>
+            <ul class="options">
+                <li><input type="radio" name="q36" value="wrong"> Apagar el switch por seguridad.</li>
+                <li><input type="radio" name="q36" value="correct"> Eliminar un camino redundante y prevenir bucles</li>
+                <li><input type="radio" name="q36" value="wrong"> Aumentar la velocidad de la red.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <p>37. ¿Qué comando global activa la versión rápida de Spanning Tree en Cisco?</p>
+            <ul class="options">
+                <li><input type="radio" name="q37" value="correct"> spanning-tree mode rapid-pvst</li>
+                <li><input type="radio" name="q37" value="wrong"> spanning-tree fast</li>
+                <li><input type="radio" name="q37" value="wrong"> stp enable</li>
+            </ul>
+        </div>
+
+        <button type="button" id="btn-finalizar" onclick="calificarExamen()">Finalizar y Ver Puntuación</button>
+    </form>
+
+    <div id="resultado-final"></div>
+
+    <script>
+        // TEMPORIZADOR 10 MINUTOS
+        let segundosTotales = 10 * 60;
+        const clockElement = document.getElementById('clock');
+
+        const timerInterval = setInterval(() => {
+            let mins = Math.floor(segundosTotales / 60);
+            let secs = segundosTotales % 60;
+            clockElement.innerText = `${mins}:${secs < 10 ? '0' + secs : secs}`;
+
+            if (segundosTotales <= 0) {
+                clearInterval(timerInterval);
+                alert("¡Tiempo agotado!");
+                calificarExamen();
+            }
+            segundosTotales--;
+        }, 1000);
+
+        function calificarExamen() {
+            clearInterval(timerInterval);
+            let puntos = 0;
+            const totalPreguntas = 20; // De la 18 a la 37
+
+            // Lógica de calificación (Texto) - .toLowerCase() y .trim() para evitar errores simples
+            if (document.getElementById('ans18').value.toLowerCase().trim() === "default-gateway") puntos++;
+            if (document.getElementById('ans19').value.toLowerCase().trim().includes("grabaciones")) puntos++;
+            if (document.getElementById('ans20').value.toLowerCase().trim() === "service") puntos++;
+            if (document.getElementById('ans21a').value.toLowerCase().trim().includes("colision")) puntos++;
+            if (document.getElementById('ans21b').value.toLowerCase().trim().includes("difusion") || 
+                document.getElementById('ans21b').value.toLowerCase().trim().includes("broadcast")) puntos++;
+            if (document.getElementById('ans23').value.trim() === "64") puntos++;
+            if (document.getElementById('ans24').value.toLowerCase().trim() === "name") puntos++;
+            if (document.getElementById('ans26').value.trim() === "99") puntos++;
+            if (document.getElementById('ans27').value.toLowerCase().trim() === "vlan.dat") puntos++;
+            if (document.getElementById('ans28').value.toLowerCase().trim() === "dot1q") puntos++;
+            if (document.getElementById('ans29').value.toLowerCase().trim() === "ip routing") puntos++;
+            if (document.getElementById('ans30').value.toLowerCase().trim() === "virtual") puntos++;
+
+            // Lógica de calificación (Radio Buttons)
+            const radios = ['q22', 'q25', 'q31', 'q32', 'q33', 'q34', 'q35', 'q36', 'q37'];
+            radios.forEach(name => {
+                const selected = document.querySelector(`input[name="${name}"]:checked`);
+                if (selected && selected.value === "correct") puntos++;
+            });
+
+            // Mostrar resultado
+            const res = document.getElementById('resultado-final');
+            res.style.display = "block";
+            res.innerHTML = `Examen Finalizado<br>Puntuación: ${puntos} / ${totalPreguntas}`;
+
+            // Bloquear Formulario
+            const allInputs = document.querySelectorAll('input');
+            allInputs.forEach(i => i.disabled = true);
+            document.getElementById('btn-finalizar').disabled = true;
+
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</body>
+</html>
